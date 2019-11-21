@@ -40,7 +40,7 @@ resource "vsphere_virtual_machine" "vm" {
   }
   provisioner "remote-exec" {
     inline = [
-      "echo 123 | sudo -S apt install nginx -y"
+      "echo ${var.password} | sudo -S apt install nginx -y"
       
     ]
   }

@@ -56,10 +56,10 @@ resource "vsphere_virtual_machine" "vm-lb" {
     agent    = "false"
     }
     inline = [
-      "echo 123 | sudo -S apt install nginx -y",
-      "echo 123 | sudo -S cp /home/student/load-balancer.conf /etc/nginx/conf.d/load-balancer.conf",
-      "echo 123 | sudo -S rm /etc/nginx/sites-enabled/default",
-      "echo 123 | sudo -S systemctl restart nginx"
+      "echo ${var.password} | sudo -S apt install nginx -y",
+      "echo ${var.password} | sudo -S cp /home/student/load-balancer.conf /etc/nginx/conf.d/load-balancer.conf",
+      "echo ${var.password} | sudo -S rm /etc/nginx/sites-enabled/default",
+      "echo ${var.password} | sudo -S systemctl restart nginx"
     ]
   }
    
